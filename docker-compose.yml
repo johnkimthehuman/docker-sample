@@ -1,0 +1,14 @@
+version: '3'
+services:
+  nginx-service:
+    build:
+      context: nginx-folder
+    image: my-nginx-image
+    container_name: my-nginx-container
+    stdin_open: true
+    tty: true
+    ports:
+      - "80:80"
+    volumes:
+      - ./docker-compose-resources/index.html:/usr/share/nginx/html/index.html
+      - ./docker-compose-resources/image.png:/usr/share/nginx/html/image.png
