@@ -12,3 +12,13 @@ services:
     volumes:
       - ./docker-compose-resources/index.html:/usr/share/nginx/html/index.html
       - ./docker-compose-resources/image.png:/usr/share/nginx/html/image.png
+
+  database-service:
+    build:
+      context: mysql-folder
+    image: my-mysql-image
+    container_name: my-mysql-container
+    ports:
+      - "80:80"
+    volumes:
+      - ./sample-db.sql:/vol/code/sample-db.sql
